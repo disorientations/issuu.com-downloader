@@ -6,6 +6,18 @@ In practice the script does not actually download the PDF, but rather downloads 
 
 [Details of construction](http://pietropassarelli.com/issuu.html)
 
+## Docker
+
+This project can be run within [Docker](https://www.docker.com/).
+
+```sh
+# Build the image
+docker build -t issuu-downloader .
+
+# Run the image
+docker run -it --rm -v $(pwd):/app issuu-downloader
+```
+
 ## Dependencies
 
 Use [Bundler](https://bundler.io/) to install project dependencies on your local system.
