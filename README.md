@@ -15,7 +15,7 @@ This project can be run within [Docker](https://www.docker.com/).
 docker build -t issuu-downloader .
 
 # Run the image
-docker run -it --rm -v $(pwd):/app issuu-downloader
+docker run -it --rm -v $(pwd):/app issuu-downloader document_id magazine_name
 ```
 
 ## Dependencies
