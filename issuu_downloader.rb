@@ -43,13 +43,7 @@ Prawn::Document.generate(
   for page in 1..pages
     print "."
     filename = "page_#{page.to_s}.jpg"
-    pdf.image filename, {
-      :width => width,
-      :height => height,
-      :position => :center,
-      :vposition => :center,
-      :fit => [pdf.bounds.right.to_i, pdf.bounds.top.to_i]
-    }
+    pdf.image filename, :width => width, :height => height
     pdf.start_new_page if page != pages
   end
 end
