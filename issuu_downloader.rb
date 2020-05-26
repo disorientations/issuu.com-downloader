@@ -28,15 +28,24 @@ while more
 end
 puts
 
+image_size = ImageSize.path("page_1.jpg")
+width = image_size.width
+height = image_size.height
+page_size = [width, height]
+
 print "Generating "
-Prawn::Document.generate("#{magazine_name}.pdf", :page_layout => :portrait) do |pdf|
+Prawn::Document.generate(
+  "#{magazine_name}.pdf",
+  :page_size => page_size,
+  :page_layout => :portrait,
+  :margin => 0
+) do |pdf|
   for page in 1..pages
     print "."
     filename = "page_#{page.to_s}.jpg"
-    size = ImageSize.path(filename)
     pdf.image filename, {
-      :width => size.width,
-      :height => size.height,
+      :width => width,
+      :height => height,
       :position => :center,
       :vposition => :center,
       :fit => [pdf.bounds.right.to_i, pdf.bounds.top.to_i]
